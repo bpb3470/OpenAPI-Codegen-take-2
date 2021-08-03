@@ -111,11 +111,61 @@ Callparams:
         type: string
 
   schemas:
-    
+    200:
+      title: successful response
+      type: object
+      responses:
+        coord:
+          - $ref: "#Callparams/schemas/coord"
+        weather:
+          type: array
+          - $ref: "#Callparams/schemas/weather"
+          description: "weather condition info"
+        base:
+          type: string
+          description: "internal param"
+        main:
+          type: array
+          - $ref: "#Callparams/schemas/main"
+        visibility:
+          type: integer
+          - $ref: "#Callparams/schemas/visibility"
+        wind:
+          type: array
+          - $ref: "#Callparams/schemas/wind"
+        clouds:
+          type: integer
+          - $ref: "#Callparams/schemas/clouds"
+        dt:
+          type: integer
+          description: "Time of data calculation, unix, UTC"
+          - $ref: "#Callparams/schemas/dt"
+        sys:
+          type: array
+          - $ref: "#Callparams/schemas/sys"
+        timezone:
+          type: integer
+          - $ref: "#Callparams/schemas/timezone"
+        id:
+          type: integer
+          description: "City ID"
+          - $ref: "#Callparams/schemas/id"
+        name:
+          type: string
+          description: "City name"
+          - $ref: "#Callparams/schemas/name"
+        cod:
+          type: integer
+          description: "Internal parameter"
+          format: int32
+          example: 200
 
+
+          
+
+  coord:
 
 
 api_id:
   type: APIKey
   appid: "4989003ca67f409f92e4e520a33589fb"
-    
