@@ -1,0 +1,121 @@
+info:
+  title: "OpenWeatherMap API"
+  description: 
+  version: ""
+
+servers:
+  url: "http://api.openweathermap.org/data/2.5/"
+
+paths:
+  /weather:
+    get:
+      tags:
+      - current weather data
+      summary:
+      description:
+      Call: CurrentWeatherData
+      paramaters:
+        - $ref: '#/Callparams/params/q'
+        - $ref: '#/Callparams/params/appid'
+        - $ref: '#/Callparams/params/mode'
+        - $ref: '#/Callparams/params/units'
+        - $ref: '#/Callparams/params/lang'
+        - $ref: '#/Callparams/params/lat'
+        - $ref: '#/Callparams/params/lon'
+        - $ref: '#/Callparams/params/zip'
+        - $ref: '#/Callparams/params/bbox'
+        - $ref: '#/Callparams/params/cnt'
+
+
+
+Callparams:
+  params:
+    q:
+      name: q
+      in: query
+      description: "City name, state code and country divided by a comma.  Paramaters can be
+                    passed in languages other than english.  The API response should be 
+                    returned in the same language as the language of requested location name 
+                    if the location is in the predefined list of more than 200,000 locations."
+      schema:
+        type: string
+    appid:
+      name: appid
+      in: query
+      description: "The User's unique API key"
+      schema:
+        type: string
+    mode:
+      name: mode
+      in: query
+      description: 
+      schema:
+        type: string
+        enum: [json, html, xml]
+        default: "json"
+    units:
+      name: units
+      in: query
+      description: "The returned values unit of measurement.  "
+      schema:
+        type: string
+        enum: [standard, metric, imperial]
+        default: "standard"
+    lang:
+      name: lang
+      in: query
+      description: "parameter determines output language"
+      schema:
+        type: string
+        enum: [af, al, ar, az, bg, ca, cz, da, de, el, en, eu,
+              fa, fi, fr, gl, he, hi, hr, hu, id, it, ja, kr, la,
+              lt, mk, no, nl, nl, p, pt, pt_br, ro, ru, sv, se, sk,
+              sl, sp, es, sr, th, tr, ua, uk, vi, zh_cn, zh_tw, zu]
+        default: "en"
+    lat:
+      name: lat
+      in: query
+      description: "geographical latitude coordinate of the location 
+                    you want the weather of.  Must include 'lat'"
+      schema:
+        type: string
+    lon:
+      name: lon
+      in: query
+      description: "geographical longitude coordinate of the location 
+                    you want the weather of.  Must include 'lon'"
+      schema:
+        type: string
+    zip:
+      name: zip
+      in: query
+      description: "zip code of the location you want the weather of.
+                    If no location is specific the default is the US"
+      schema:
+        type: string
+    bbox:
+      name: bbox
+      in: query
+      description: "Bounding box containing areas of interest in their weather
+                    must specify all four coordinates in the order of lon-left,
+                    lat-bottom,lon-right,lat-top,zoom]"
+      schema:
+        type: string
+        enum: [lon-left,lat-bottom,lon-right,lat-top,zoom]
+    cnt:
+      name: cnt
+      in: query
+      description: "number of cities in the location reuqest around specified
+                    longitude and latitude coordinates"
+      schema:
+        type: string
+
+  schemas:
+    
+
+
+
+api_id:
+  type: APIKey
+  appid: "4989003ca67f409f92e4e520a33589fb"
+    
