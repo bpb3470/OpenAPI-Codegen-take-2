@@ -1,116 +1,116 @@
+#swagger: "2.0"
+openapi: 3.0.0
+
 info:
   title: "OpenWeatherMap API"
-  description: 
-  version: ""
+  description: " "
+  version: " "
 
 servers:
-  url: "http://api.openweathermap.org/data/2.5/"
+- url: "http://api.openweathermap.org/data/2.5/"
+  description: " "
 
 paths:
   /weather:
     get:
-      tags:
-      - current weather data
-      summary:
-      description:
+      #tags: "array"
+      summary: " "
+      description: " "
       Call: CurrentWeatherData
       paramaters:
-        - $ref: '#/Callparams/params/q'
-        - $ref: '#/Callparams/params/appid'
-        - $ref: '#/Callparams/params/mode'
-        - $ref: '#/Callparams/params/units'
-        - $ref: '#/Callparams/params/lang'
-        - $ref: '#/Callparams/params/lat'
-        - $ref: '#/Callparams/params/lon'
-        - $ref: '#/Callparams/params/zip'
-        - $ref: '#/Callparams/params/bbox'
-        - $ref: '#/Callparams/params/cnt'
-
-
-
-Callparams:
-  params:
-    q:
-      name: q
-      in: query
-      description: "City name, state code and country divided by a comma.  Paramaters can be
-                    passed in languages other than english.  The API response should be 
-                    returned in the same language as the language of requested location name 
-                    if the location is in the predefined list of more than 200,000 locations."
-      schema:
-        type: string
-    appid:
-      name: appid
-      in: query
-      description: "The User's unique API key"
-      schema:
-        type: string
-    mode:
-      name: mode
-      in: query
-      description: 
-      schema:
-        type: string
-        enum: [json, html, xml]
-        default: "json"
-    units:
-      name: units
-      in: query
-      description: "The returned values unit of measurement.  "
-      schema:
-        type: string
-        enum: [standard, metric, imperial]
-        default: "standard"
-    lang:
-      name: lang
-      in: query
-      description: "parameter determines output language"
-      schema:
-        type: string
-        enum: [af, al, ar, az, bg, ca, cz, da, de, el, en, eu,
-              fa, fi, fr, gl, he, hi, hr, hu, id, it, ja, kr, la,
-              lt, mk, no, nl, nl, p, pt, pt_br, ro, ru, sv, se, sk,
-              sl, sp, es, sr, th, tr, ua, uk, vi, zh_cn, zh_tw, zu]
-        default: "en"
-    lat:
-      name: lat
-      in: query
-      description: "geographical latitude coordinate of the location 
-                    you want the weather of.  Must include 'lat'"
-      schema:
-        type: string
-    lon:
-      name: lon
-      in: query
-      description: "geographical longitude coordinate of the location 
-                    you want the weather of.  Must include 'lon'"
-      schema:
-        type: string
-    zip:
-      name: zip
-      in: query
-      description: "zip code of the location you want the weather of.
-                    If no location is specific the default is the US"
-      schema:
-        type: string
-    bbox:
-      name: bbox
-      in: query
-      description: "Bounding box containing areas of interest in their weather
-                    must specify all four coordinates in the order of lon-left,
-                    lat-bottom,lon-right,lat-top,zoom]"
-      schema:
-        type: string
-        enum: [lon-left,lat-bottom,lon-right,lat-top,zoom]
-    cnt:
-      name: cnt
-      in: query
-      description: "number of cities in the location reuqest around specified
-                    longitude and latitude coordinates"
-      schema:
-        type: string
-        enum: [json, xml, html]
-        default: "json"
+        #$ref: '#/paths/Callparams/params/q'
+        #$ref: '#/paths/Callparams/params/appid'
+        #$ref: '#/Callparams/params/mode'
+        #$ref: '#/Callparams/params/units'
+        #$ref: '#/Callparams/params/lang'
+        #$ref: '#/Callparams/params/lat'
+        #$ref: '#/Callparams/params/lon'
+        #$ref: '#/Callparams/params/zip'
+        #$ref: '#/Callparams/params/bbox'
+        #$ref: '#/Callparams/params/cnt'
+    Callparams:
+      params:
+        q:
+          name: q
+          in: query
+          description: "City name, state code and country divided by a comma.  Paramaters can be
+                        passed in languages other than english.  The API response should be 
+                        returned in the same language as the language of requested location name 
+                        if the location is in the predefined list of more than 200,000 locations."
+          schema:
+            type: string
+        appid:
+          name: appid
+          in: query
+          description: "The User's unique API key"
+          schema:
+            type: string
+        mode:
+          name: mode
+          in: query
+          description: 
+          schema:
+            type: string
+            enum: [json, html, xml]
+            default: "json"
+        units:
+          name: units
+          in: query
+          description: "The returned values unit of measurement.  "
+          schema:
+            type: string
+            enum: [standard, metric, imperial]
+            default: "standard"
+        lang:
+          name: lang
+          in: query
+          description: "parameter determines output language"
+          schema:
+            type: string
+            enum: [af, al, ar, az, bg, ca, cz, da, de, el, en, eu,
+                  fa, fi, fr, gl, he, hi, hr, hu, id, it, ja, kr, la,
+                  lt, mk, no, nl, nl, p, pt, pt_br, ro, ru, sv, se, sk,
+                  sl, sp, es, sr, th, tr, ua, uk, vi, zh_cn, zh_tw, zu]
+            default: "en"
+        lat:
+          name: lat
+          in: query
+          description: "geographical latitude coordinate of the location 
+                        you want the weather of.  Must include 'lat'"
+          schema:
+            type: string
+        lon:
+          name: lon
+          in: query
+          description: "geographical longitude coordinate of the location 
+                        you want the weather of.  Must include 'lon'"
+          schema:
+            type: string
+        zip:
+          name: zip
+          in: query
+          description: "zip code of the location you want the weather of.
+                        If no location is specific the default is the US"
+          schema:
+            type: string
+        bbox:
+          name: bbox
+          in: query
+          description: "Bounding box containing areas of interest in their weather
+                        must specify all four coordinates in the order of lon-left,
+                        lat-bottom,lon-right,lat-top,zoom]"
+          schema:
+            type: string
+            enum: [lon-left,lat-bottom,lon-right,lat-top,zoom]
+        cnt:
+          name: cnt
+          in: query
+          description: "number of cities in the location reuqest around specified
+                        longitude and latitude coordinates"
+          schema:
+            type: string
+            enum: [json, xml, html]
+            default: "json"
 
   schemas:
     200:
@@ -118,56 +118,54 @@ Callparams:
       type: object
       responses:
         coord:
-          - $ref: "#Callparams/schemas/coord"
+          #type: integer
+          $ref: '#/paths/coord/objcoord'
         weather:
-          type: array
-          - $ref: "#Callparams/schemas/weather"
-          description: "weather condition info"
+          #type: array
+          $ref: '#/paths/coord/weather'
+          #description: "weather condition info"
         base:
           type: string
           description: "internal param"
         main:
-          type: array
-          - $ref: "#Callparams/schemas/main"
+          #type: array
+          $ref: '#/paths/coord/main'
         visibility:
-          type: integer
-          - $ref: "#Callparams/schemas/visibility"
+          #type: integer
+          $ref: '#/paths/coord/visibility'
         wind:
-          type: array
-          - $ref: "#Callparams/schemas/wind"
+          #type: array
+          $ref: '#/paths/coord/wind'
         clouds:
-          type: integer
-          - $ref: "#Callparams/schemas/clouds"
+          #type: integer
+          $ref: '#/paths/coord/clouds'
         dt:
-          type: integer
-          description: "Time of data calculation, unix, UTC"
-          - $ref: "#Callparams/schemas/dt"
+          #type: integer
+          #description: "Time of data calculation, unix, UTC"
+          $ref: '#/paths/coord/dt'
         sys:
-          type: array
-          - $ref: "#Callparams/schemas/sys"
+          #type: array
+          $ref: '#/paths/coord/sys'
         timezone:
-          type: integer
-          - $ref: "#Callparams/schemas/timezone"
+          #type: integer
+          $ref: '#/paths/coord/timezone'
         id:
-          type: integer
-          description: "City ID"
-          - $ref: "#Callparams/schemas/id"
+          #type: integer
+          #description: "City ID"
+          $ref: '#/paths/coord/id'
         name:
           type: string
           description: "City name"
-          - $ref: "#Callparams/schemas/name"
+          #$ref: 
         cod:
           type: integer
           description: "Internal parameter"
           format: integer
           example: 200
-    
 
 
-
-          
-
-    coord:
+  coord:
+    objcoord:
       name: coord
       type: object
       properties:
@@ -221,65 +219,65 @@ Callparams:
         grnd_level:
           type: integer
           description: "Atmospheric pressure on the ground level, hPa"
-      visibility:
-        name: visibility
+    visibility:
+      name: visibility
+      type: integer
+      description: "distance visible in the specified location"
+    wind:
+      name: wind
+      type: object
+      speed:
+        type: number
+        description: "wind speed in decimal form"
+      deg:
         type: integer
-        description: "distance visible in the specified location"
-      wind:
-        name: wind
-        type: object
-          speed:
-            type: number
-            description: "wind speed in decimal form"
-          deg:
-            type: integer
-            description: "angle of the win in location"
-      clouds:
-        name: clouds
-        type: integer
-        description: ""
-      dt:
-        name: dt
-        type: integer
-        description: "time taken to calculate"
-      sys:
-        name: sys
-        type: object
-          type:
-            name: type
-            type: integer
-          id:
-            name: id
-            type: integer
-          message:
-            name: message
-            type: integer
-          country:
-            name: country
-            type: string
-          sunrise:
-            name: sunrise
-            type: integer
-          sunset:
-            name: sunset
-            type: integer
-      timezone:
-        name: timezone
+        description: "angle of the win in location"
+    clouds:
+      name: clouds
+      type: integer
+      description: ""
+    dt:
+      name: dt
+      type: integer
+      description: "time taken to calculate"
+    sys:
+      name: sys
+      type: object
+      systype:
+        name: type
         type: integer
       id:
         name: id
-      name:
+        type: integer
+      message:
+        name: message
+        type: integer
+      country:
+        name: country
+        type: string
+      sunrise:
+        name: sunrise
+        type: integer
+      sunset:
+        name: sunset
+        type: integer
+    timezone:
+      name: timezone
+      type: integer
+    id:
+      name: id
+      idname:
         name: name
         type: string
         description: "name of the location"
-      cod:
-        name: cod
-        type: integer
-        example: 200
-        
+    cod:
+      name: cod
+      type: integer
+      example: 200
 
 
-api_id:
-  type: APIKey
-  description: my key to interact with the API
-  appid: "4989003ca67f409f92e4e520a33589fb"
+
+  api_id:
+    type: APIKey
+    description: my key to interact with the API
+    myappid: "4989003ca67f409f92e4e520a33589fb"
