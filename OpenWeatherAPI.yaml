@@ -4,7 +4,7 @@ info:
   description: "Weather return API  "
   version: "1.0"
 servers:
-- url: "http://api.openweathermap.org/data/2.5/"
+- url: "http://api.openweathermap.org"
   description: " "
 
 paths:
@@ -17,13 +17,15 @@ paths:
       #I think this line should be something like this:
      #'/udb/{networkId}/ip/i.gif':
       #but I don't know how to write that so im going to just put Paramaters.
-      requestbody:
+      parameters:
         - name: q
           in: query
           description: "City name, state code and country divided by a comma.  Paramaters can be
                       passed in languages other than english.  The API response should be 
                       returned in the same language as the language of requested location name 
                       if the location is in the predefined list of more than 200,000 locations."
+          schema:
+            type: string
         - name: appid
           in: query
           description: "The User's unique API key"
@@ -31,7 +33,7 @@ paths:
             type: string
         - name: mode
           in: query
-          description: 
+          description:  s
           schema:
             type: string
             enum: [json, html, xml]
@@ -92,116 +94,112 @@ paths:
         '200':
           description: successful response
           content:
-            - name: coord
-              type: object
-              properties:
-                lat:
-                  type: number
-                  description: "City geo location, latitude"
-                Lon:
-                  type: number
-                  description: "City geo location, longitude"  
-            - name: weather
-              type: object
-              properties:
-                id:
-                  type: integer
-                  description: weather condition ID
-                main:
-                  type: string
-                  description: Group of weather parameters (Rain, Snow, Extreme etc.)
-                description:
-                  type: string
-                  description: Weather condition within the group. You can get the output in your language.
-                icon:
-                  type: string
-                  description: Weather icon id
-            - name: base
-              type: string
-              description: internal param
-            - name: main
-              type: object
-              properties:
-                temp:
-                  type: number
-                  description: "Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit."
-                feels_like:
-                  type: number
-                  description: parameter accounts for the human perception of weather.
-                temp_min:
-                  type: number
-                  description: "Minimum temperature at the moment.  Unit Default: Kelvin, Metric: Celsius, Imperial: fahrenheit."
-                temp_max:
-                  type: number
-                  description: "Maxumum temperature at the moment.  Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit."
-                pressure:
-                  type: integer
-                  description: Atmospheric pressure on the sea level
-                humidity:
-                  type: integer
-                  description: Humidity, %
-                sea_level:
-                  type: integer
-                  description: "Atmospheric pressure on the sea level, hPa"
-                grnd_level:
-                  type: integer
-                  description: "Atmospheric pressure on the ground level, hPa"
-            - name: visibility
-              type: integer
-              description: "distance visible in the specified location"
-            - name: wind
-              type: object
-              speed:
-                type: number
-                description: "wind speed in decimal form"
-              deg:
+            application/json:
+              - name: coord
+                type: object
+                properties:
+                  lat:
+                    type: number
+                    description: "City geo location, latitude"
+                  Lon:
+                    type: number
+                    description: "City geo location, longitude"  
+              - name: weather
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: weather condition ID
+                  main:
+                    type: string
+                    description: Group of weather parameters (Rain, Snow, Extreme etc.)
+                  description:
+                    type: string
+                    description: Weather condition within the group. You can get the output in your language.
+                  icon:
+                    type: string
+                    description: Weather icon id
+              - name: base
+                type: string
+                description: internal param
+              - name: main
+                type: object
+                properties:
+                  temp:
+                    type: number
+                    description: "Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit."
+                  feels_like:
+                    type: number
+                    description: parameter accounts for the human perception of weather.
+                  temp_min:
+                    type: number
+                    description: "Minimum temperature at the moment.  Unit Default: Kelvin, Metric: Celsius, Imperial: fahrenheit."
+                  temp_max:
+                    type: number
+                    description: "Maxumum temperature at the moment.  Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit."
+                  pressure:
+                    type: integer
+                    description: Atmospheric pressure on the sea level
+                  humidity:
+                    type: integer
+                    description: Humidity, %
+                  sea_level:
+                    type: integer
+                    description: "Atmospheric pressure on the sea level, hPa"
+                  grnd_level:
+                    type: integer
+                    description: "Atmospheric pressure on the ground level, hPa"
+              - name: visibility
                 type: integer
-                description: "angle of the win in location"
-            - name: clouds
-              type: integer
-              description: ""
-            - name: dt
-              type: integer
-              description: "time taken to calculate"
-            - name: sys
-              type: object
-              systype:
-                name: type
-                type: integer
-                id:
-                  name: id
-                  type: integer
-                message:
-                  name: message
+                description: "distance visible in the specified location"
+              - name: wind
+                type: object
+                speed:
                   type: number
-                country:
-                  name: country
-                  type: string
-                sunrise:
-                 name: sunrise
-                 type: integer
-                sunset:
-                  name: sunset
+                  description: "wind speed in decimal form"
+                deg:
                   type: integer
-            - name: timezone
-              type: integer
-              description: the time zone of the specified place
-            - name:
-              type: string
-              description: "City name"
-            - name: cod
-              type: integer
-              description: "Internal parameter"
-              format: integer
-              example: 200
-            - name: id
-              type: integer
-              description: identity number of the area specified
-            - name: name
-              type: string
-              description: "name of the location"
-  securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: OpenWeatherAPIKey
+                  description: "angle of the win in location"
+              - name: clouds
+                type: integer
+                description: ""
+              - name: dt
+                type: integer
+                description: "time taken to calculate"
+              - name: sys
+                type: object
+                systype:
+                  name: type
+                  type: integer
+                  id:
+                    name: id
+                    type: integer
+                  message:
+                    name: message
+                    type: number
+                  country:
+                    name: country
+                    type: string
+                  sunrise:
+                   name: sunrise
+                   type: integer
+                  sunset:
+                    name: sunset
+                    type: integer
+              - name: timezone
+                type: integer
+                description: the time zone of the specified place
+              - name:
+                type: string
+                description: "City name"
+              - name: cod
+                type: integer
+                description: "Internal parameter"
+                format: integer
+                example: 200
+              - name: id
+                type: integer
+                description: identity number of the area specified
+              - name: name
+                type: string
+                description: "name of the location"
