@@ -33,7 +33,7 @@ paths:
             type: string
         - name: mode
           in: query
-          description:  s
+          description:  "Response format. Possible values are xml and html. If you don't use the mode parameter format is JSON by default"
           schema:
             type: string
             enum: [json, html, xml]
@@ -105,10 +105,10 @@ components:
       type: object
       properties:
         lat:
-          type: integer
+          type: number
           description: "City geo location, latitude"
         Lon:
-          type: integer
+          type: number
           description: "City geo location, longitude"  
     weather:
       type: object
@@ -127,15 +127,15 @@ components:
           description: "Weather icon id"
     base:
       type: string
-      description: sss
+      description: Internal parameter
     main:
       type: object
       properties:
         temp:
-          type: integer
+          type: number
           description: "Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit."
         feels_like:
-          type: integer
+          type: number
           description: "parameter accounts for the human perception of weather."
         pressure:
           type: integer
@@ -144,17 +144,17 @@ components:
           type: integer
           description: "Humidity, %"
         temp_min:
-          type: integer
+          type: number
           description: "Minimum temperature at the moment.  Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit."
         temp_max:
-          type: integer
+          type: number
           description: "Maxumum temperature at the moment.  Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit."
-        sea_level:
-          type: integer
-          description: "Atmospheric pressure on the sea level, hPa"
-        grnd_level:
-          type: integer
-          description: "Atmospheric pressure on the ground level, hPa"
+#        sea_level:
+#          type: integer
+#          description: "Atmospheric pressure on the sea level, hPa"
+#        grnd_level:
+#          type: integer
+#          description: "Atmospheric pressure on the ground level, hPa"
     visibility:
       type: integer
       description: "distance visible in the specified location"
@@ -178,23 +178,31 @@ components:
       properties:
         type:
           type: integer
+          description: internal parameter
         id:
           type: integer
+          description: internal parameter
         message:
-          type: integer
+          type: number
+          description: internal parameter
         country:
           type: string
+          description: Country code (GB, JP etc.)
         sunrise:
           type: integer
+          description:  Sunrise time, unix, UTC
         sunset:
           type: integer
+          description: Sunset time, unix, UTC
     timezone:
       type: integer
+      description: Shift in seconds from UTC 
     id:
-      description: ss
-    cityname:  #changing from name to cityname due to error
+      description: City ID
+    name:  #changing from name to cityname due to error
       type: string
-      description: "name of the location"
+      description: "city name"
     cod:
       type: integer
       example: 200
+      description: internal parameter
