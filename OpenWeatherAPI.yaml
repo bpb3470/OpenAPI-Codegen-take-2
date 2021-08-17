@@ -131,7 +131,6 @@ components:
     main:
       type: object
       properties:
-
         temp:
           type: integer
           description: "Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit."
@@ -156,55 +155,46 @@ components:
         grnd_level:
           type: integer
           description: "Atmospheric pressure on the ground level, hPa"
-      visibility:
-        type: integer
-        description: "distance visible in the specified location"
-      wind:
-        type: object
-        properties: 
-          speed:
-            type: number
-            description: "wind speed in decimal form"
-          deg:
-            type: integer
-            description: "angle of the win in location"
-      clouds:
-        type: integer
-        description: cloud coverage
-      dt:
-        type: integer
-        description: "time taken to calculate"
-      sys:
-        type: object
-        properties:
-          type:
-            name: type
-            type: integer
-          id:
-            name: id
-            type: integer
-          message:
-            name: message
-            type: integer
-          country:
-            name: country
-            type: string
-          sunrise:
-            name: sunrise
-            type: integer
-          sunset:
-            name: sunset
-            type: integer
-      timezone:
-        name: timezone
-        type: integer
-      id:
-        name: id
-      cityname:  #changing from name to cityname due to error
-        name: cityname
-        type: string
-        description: "name of the location"
-      cod:
-        name: cod
-        type: integer
-        example: 200
+    visibility:
+      type: integer
+      description: "distance visible in the specified location"
+    wind:
+      type: object
+      properties: 
+        speed:
+          type: number
+          description: "wind speed in decimal form"
+        deg:
+          type: integer
+          description: "angle of the win in location"
+    clouds:
+      type: integer
+      description: cloud coverage
+    dt:
+      type: integer
+      description: "time taken to calculate"
+    sys:
+      type: object
+      properties:
+        type:
+          type: integer
+        id:
+          type: integer
+        message:
+          type: integer
+        country:
+          type: string
+        sunrise:
+          type: integer
+        sunset:
+          type: integer
+    timezone:
+      type: integer
+    id:
+      description: ss
+    cityname:  #changing from name to cityname due to error
+      type: string
+      description: "name of the location"
+    cod:
+      type: integer
+      example: 200
