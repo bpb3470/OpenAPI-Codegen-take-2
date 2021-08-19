@@ -96,7 +96,34 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas"
+                type: object
+                properties:
+                  coord:
+                    $ref: '#/components/schemas/coord'
+                  weather:
+                    $ref: '#/components/schemas/weather'
+                  base:
+                    $ref: '#/components/schemas/base'
+                  main:
+                    $ref: '#/components/schemas/main'
+                  visibility:
+                    $ref: '#/components/schemas/visibility'
+                  wind:
+                    $ref: '#/components/schemas/wind'
+                  clouds:
+                    $ref: '#/components/schemas/clouds'
+                  dt:
+                    $ref: '#/components/schemas/dt'
+                  sys:
+                    $ref: '#/components/schemas/sys'
+                  timezone:
+                    $ref: '#/components/schemas/timezone'
+                  id:
+                    $ref: '#/components/schemas/id'
+                  name:
+                    $ref: '#/components/schemas/name'
+                  cod:
+                    $ref: '#/components/schemas/cod'
                 
               
 components:
